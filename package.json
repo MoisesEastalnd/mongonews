@@ -1,0 +1,25 @@
+{
+  "name": "mongonews",
+  "version": "1.0.0",
+  "description": "view and comment on the latest news updates,loaded with programs like  mongodb, mongoose, cheerio, express, and handle-express. This app scrapes the multiple  news sights to have all your intrest in one stop shop.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoisesEastalnd/mongonews.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoisesEastalnd/mongonews/issues"
+  },
+  "homepage": "https://github.com/MoisesEastalnd/mongonews#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  }
+}
