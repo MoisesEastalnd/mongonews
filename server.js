@@ -13,6 +13,14 @@ const db = require("./models");
 
 const app = express();
 
+const databaseUrl = "scraper";
+const collections = ["scapedData"];
+
+const db = mongojs(databaseUrl, collections);
+db.on("error", function(error) {
+console.log("Database Error:",error);
+});
+
 
 app.get("/", function(req,res){
   res.send("testing route...it works!!!");
