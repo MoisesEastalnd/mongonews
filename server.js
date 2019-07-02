@@ -11,3 +11,15 @@ const PORT = 6000
 const db = require("./models");
 
 const app = express();
+
+
+app.get("/", function(error){
+  res.send("testing route...it works!!!");
+});
+
+
+
+
+app.listen(6000,function() {
+console.log("App is running on port 6000!!!");
+});
