@@ -21,14 +21,26 @@ db.on("error", function(error) {
 console.log("Database Error:",error);
 });
 
-
+//Route
 app.get("/", function(req,res){
   res.send("testing route...it works!!!");
 });
 
+//Scraping Route
+app.get("/", function(req,res) {
+  db.scrapedData.find({}, function (err,found) {
+   if (err) {
+     console.log (err);
+   }
+   else{
+     res.json(found);
+   }
+  });
+});
 
 
 
+//server responces
 app.listen(6000,function() {
 console.log("App is running on port 6000!!!");
 });
