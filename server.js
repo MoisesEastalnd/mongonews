@@ -1,25 +1,25 @@
 const express = require("express");
-const mongojs = require("mongojs");
-const mongoose = ("mongoose");
+
+const mongoose = require("mongoose");
 
 //scraping  tools 
 const axios = require("axios");
 const cheerio = ("cheerio");
 
 //server port 
-const PORT = 6000
+const PORT = 3000
 
-const db = require("./models");
+//const db = require("./models");
 
 const app = express();
 
 const databaseUrl = "scraper";
 const collections = ["scapedData"];
 
-const db = mongojs(databaseUrl, collections);
-db.on("error", function(error) {
-console.log("Database Error:",error);
-});
+ mongoose.connect("mongodb://localhost/scraper",{useNewUrlParser: true});
+//db.on("error", function(error) {
+//console.log("Database Error:",error);
+//});
 
 //Route
 app.get("/", function(req,res){
@@ -28,19 +28,20 @@ app.get("/", function(req,res){
 
 //Scraping Route
 app.get("/", function(req,res) {
-  db.scrapedData.find({}, function (err,found) {
-   if (err) {
-     console.log (err);
-   }
-   else{
-     res.json(found);
-   }
-  });
+  //db.scrapedData.find({}, function (err,found) {
+  // if (err) {
+    // console.log (err);
+  // }
+  // else{
+   //  res.json(found);
+  // }
+ res.send("hello");
 });
+//});
 
 
 
 //server responces
-app.listen(6000,function() {
+app.listen(PORT,function() {
 console.log("App is running on port 6000!!!");
 });
