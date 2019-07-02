@@ -1,4 +1,5 @@
 const express = require("express");
+const mongojs = require("mongojs");
 const mongoose = ("mongoose");
 
 //scraping  tools 
@@ -13,7 +14,7 @@ const db = require("./models");
 const app = express();
 
 
-app.get("/", function(error){
+app.get("/", function(req,res){
   res.send("testing route...it works!!!");
 });
 
