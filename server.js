@@ -8,7 +8,7 @@ const cheerio = ("cheerio");
 
 //server port 
 const PORT = process.env.PORT ||3000
-const  MONGODB_URI = process.env || "mongodb://localhost/mongoHeadlines";
+const  MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 //const db = require("./models");
 
 const app = express();
@@ -67,7 +67,7 @@ app.get("/articles", function(req,res){
   .catch(function(err){
     res.json(err);
   });
-})
+});
 
 
 
