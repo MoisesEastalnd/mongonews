@@ -21,24 +21,54 @@ const collections = ["scapedData"];
 //db.on("error", function(error) {
 //console.log("Database Error:",error);
 //});
-
+//});
 //Route
 app.get("/", function(req,res){
   res.send("testing route...it works!!!");
 });
 
-//Scraping Route
-app.get("/", function(req,res) {
-  //db.scrapedData.find({}, function (err,found) {
-  // if (err) {
-    // console.log (err);
-  // }
-  // else{
-   //  res.json(found);
-  // }
- res.send("hello");
+//Website Scraping Route
+app.get("/scrape", function(req,res) {
+  //grsbbing the body of html with axios
+  axios.get("").then(function(response){
+    //loading body in cheerio and saving body to $ as shorthand selector
+    const $ = cheerio.load(response.data);
+    // grabbing everry h2  under the article tag
+    $("").each(function(i,element){
+      //saving an empty result object
+      const result = {};
+
+     //
+      result.title = $(this)
+      .children("a")
+      .text();
+      result.link = $(this)
+      .children("a")
+      .attr("href");
+
+      db.Article.create(result)
+      .then(function(db){
+        console.log (db);
+      })
+      .catch(function(err){
+        console.log (err);
+      });
+    });
+    res.send("Scrap is Done");
+  });
+ 
 });
-//});
+
+app.get("/articles", function(req,res){
+  db.Article.find({})
+  .then(function(db){
+    res.json(db);
+  })
+  .catch(function(err){
+    res.json(err);
+  });
+})
+
 
 
 
