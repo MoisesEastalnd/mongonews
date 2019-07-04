@@ -16,7 +16,7 @@ const app = express();
 const databaseUrl = "scraper";
 const collections = ["scapedData"];
 
- mongoose.connect("mongodb://localhost/scraper",{useNewUrlParser: true});
+ 
  mongoose.connect(MONGODB_URI);
 //db.on("error", function(error) {
 //console.log("Database Error:",error);
