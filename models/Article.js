@@ -1,4 +1,4 @@
-const Schem = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const ArticleSchema = new Schema({
 

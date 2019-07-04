@@ -7,8 +7,8 @@ const axios = require("axios");
 const cheerio = ("cheerio");
 
 //server port 
-const PORT = 3000
-
+const PORT = process.env.PORT ||3000
+const  MONGODB_URI = process.env || "mongodb://localhost/mongoHeadlines";
 //const db = require("./models");
 
 const app = express();
@@ -17,6 +17,7 @@ const databaseUrl = "scraper";
 const collections = ["scapedData"];
 
  mongoose.connect("mongodb://localhost/scraper",{useNewUrlParser: true});
+ mongoose.connect(MONGODB_URI);
 //db.on("error", function(error) {
 //console.log("Database Error:",error);
 //});
